@@ -6,11 +6,16 @@ import {
   GuideSection,
 } from "@/components/guides/guide-primitives";
 import {
+  InformationReviewed,
+  InformationSources,
+} from "@/components/guides/information-sources";
+import {
   ArticleStructuredData,
   Breadcrumbs,
   FaqStructuredData,
 } from "@/components/structured-data";
 import { createPageMetadata } from "@/lib/seo";
+import { movingGuideReview } from "@/lib/editorial";
 
 const guideTitle = "Moving to Brussels: The Practical Expat Guide";
 const guideDescription =
@@ -140,6 +145,8 @@ export default function MovingToBrusselsPage() {
             <span>Independent information</span>
             <span aria-hidden="true">·</span>
             <span>Practical, not legal advice</span>
+            <span aria-hidden="true">·</span>
+            <InformationReviewed date={movingGuideReview.lastReviewed} />
           </div>
         </div>
       </header>
@@ -557,43 +564,16 @@ export default function MovingToBrusselsPage() {
             title="Useful Brussels Resources"
           >
             <p>
-              Start with the source responsible for the question. Search for
-              the official current information by organization and topic;
-              this guide does not provide or endorse unofficial links.
+              Start with the source responsible for the question. The links
+              below point to official or primary references; verify current
+              information for your circumstances before acting.
             </p>
             <ul className="guide-resource-list">
-              <li>
-                <strong>Belgian federal government portal (Belgium.be)</strong>
-                <span>
-                  For federal public-service information and signposting to
-                  responsible authorities.
-                </span>
-              </li>
-              <li>
-                <strong>Brussels-Capital Region official information</strong>
-                <span>
-                  For regional housing and other Brussels-specific public
-                  information; verify current rules and guidance.
-                </span>
-              </li>
-              <li>
-                <strong>Your commune&apos;s official website or service desk</strong>
-                <span>
-                  For procedures linked to your address, local services and
-                  current appointment or document information.
-                </span>
-              </li>
               <li>
                 <strong>STIB/MIVB and SNCB/NMBS</strong>
                 <span>
                   For current public transport routes, services, tickets and
                   travel information.
-                </span>
-              </li>
-              <li>
-                <strong>Your insurer or relevant mutuality</strong>
-                <span>
-                  For personal coverage, eligibility and policy questions.
                 </span>
               </li>
               <li>
@@ -604,6 +584,7 @@ export default function MovingToBrusselsPage() {
                 </span>
               </li>
             </ul>
+            <InformationSources sources={movingGuideReview.sources} />
           </GuideSection>
 
           <GuideSection id="faq" number="17" title="FAQ">

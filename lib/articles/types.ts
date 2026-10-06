@@ -1,3 +1,5 @@
+import type { EditorialReview } from "@/lib/editorial";
+
 export type ArticleInlineSegment =
   | string
   | {
@@ -63,6 +65,7 @@ export type Article = {
   content: ArticleBlock[];
   faq: ArticleFAQItem[];
   relatedArticles: string[];
+  editorialReview?: EditorialReview;
 };
 
 export type ArticleRepository = {

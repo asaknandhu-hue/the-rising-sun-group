@@ -1,4 +1,8 @@
 import type { Article } from "./types";
+import {
+  rentalContractReview,
+  rentalDepositReview,
+} from "@/lib/editorial";
 
 const editorialPlaceholder =
   "Editorial placeholder: this article outline is not a verified guide and should be completed with current, attributable sources before publication.";
@@ -75,6 +79,7 @@ export const localArticles = [
     heroImage: null,
     readingTimeMinutes: 2,
     tags: ["renting", "deposit", "verification"],
+    editorialReview: rentalDepositReview,
     content: [
       {
         type: "callout",
@@ -139,6 +144,7 @@ export const localArticles = [
     heroImage: null,
     readingTimeMinutes: 2,
     tags: ["renting", "contracts", "verification"],
+    editorialReview: rentalContractReview,
     content: [
       {
         type: "callout",

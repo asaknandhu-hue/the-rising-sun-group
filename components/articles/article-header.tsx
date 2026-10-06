@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Article } from "@/lib/articles/types";
+import { InformationReviewed } from "@/components/guides/information-sources";
 
 type ArticleHeaderProps = {
   title: string;
@@ -44,6 +45,12 @@ export function ArticleHeader({
             )}
             <span aria-hidden="true">·</span>
             <span>{article.readingTimeMinutes} min read</span>
+            {article.editorialReview && (
+              <>
+                <span aria-hidden="true">·</span>
+                <InformationReviewed date={article.editorialReview.lastReviewed} />
+              </>
+            )}
           </div>
         )}
       </div>

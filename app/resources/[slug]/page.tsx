@@ -5,6 +5,7 @@ import { ArticleCTA } from "@/components/articles/article-cta";
 import { ArticleFAQ } from "@/components/articles/article-faq";
 import { ArticleHeader } from "@/components/articles/article-header";
 import { ArticleTableOfContents } from "@/components/articles/article-table-of-contents";
+import { InformationSources } from "@/components/guides/information-sources";
 import { RelatedArticles } from "@/components/articles/related-articles";
 import {
   Breadcrumbs,
@@ -86,6 +87,9 @@ export default async function ResourceArticlePage({
             article={article}
             articleSlugs={allArticles.map(({ slug: articleSlug }) => articleSlug)}
           />
+          {article.editorialReview && (
+            <InformationSources sources={article.editorialReview.sources} />
+          )}
           <ArticleFAQ items={article.faq} />
           <ArticleCTA />
         </div>
